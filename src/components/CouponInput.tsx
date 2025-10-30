@@ -46,12 +46,12 @@ export const CouponInput = ({ onApplyCoupon, currentCoupon, onRemoveCoupon }: Co
       <div className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg">
         <div className="flex items-center gap-2 text-sm">
           <Tag className="h-4 w-4 text-green-600" />
-          <span className="font-medium text-green-600">Coupon: {currentCoupon}</span>
+          <span className="font-medium text-green-600">{t.couponLabel} {currentCoupon}</span>
         </div>
         <button
           onClick={onRemoveCoupon}
           className="text-green-600 hover:text-green-700"
-          title="Remove coupon"
+          title={t.remove}
         >
           <X className="h-4 w-4" />
         </button>
@@ -79,7 +79,7 @@ export const CouponInput = ({ onApplyCoupon, currentCoupon, onRemoveCoupon }: Co
         </Button>
       </div>
       <div className="text-xs text-muted-foreground">
-        <p>Try: SAVE10, SAVE20, FIRST5, WELCOME</p>
+        <p>{t.availableCoupons}</p>
       </div>
     </div>
   );

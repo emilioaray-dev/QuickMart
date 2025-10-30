@@ -42,7 +42,7 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
           <div className="flex items-center justify-between pt-2 border-t border-border/50">
             <div className="flex flex-col">
               <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                Price
+                {t.priceLabel}
               </span>
               <span className="text-2xl font-bold text-primary">${product.price.toFixed(2)}</span>
             </div>

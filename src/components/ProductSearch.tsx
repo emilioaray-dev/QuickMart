@@ -57,7 +57,7 @@ export const ProductSearch = ({
       </div>
       <Select onValueChange={onCategoryChange} defaultValue="all">
         <SelectTrigger className="w-[200px] h-12 border-2 border-border shadow-sm font-semibold">
-          <SelectValue placeholder="Category" />
+          <SelectValue placeholder={t.categoryPlaceholder} />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all" className="font-semibold">
