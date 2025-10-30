@@ -1,8 +1,8 @@
-import type { SupportedLanguage, Translation } from "./types";
 import { de } from "./translations/de";
 import { en } from "./translations/en";
 import { es } from "./translations/es";
 import { fr } from "./translations/fr";
+import type { SupportedLanguage, Translation } from "./types";
 
 export const translations: Record<SupportedLanguage, Translation> = {
   en,

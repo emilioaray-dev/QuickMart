@@ -1,7 +1,7 @@
 import type React from "react";
-import { createContext, useContext, useMemo, useState } from "react";
-import { type SupportedLanguage, type Translation, translations } from "@/i18n";
+import { createContext, useContext, useMemo } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { type SupportedLanguage, type Translation, translations } from "@/i18n";
 
 interface LanguageContextType {
   language: SupportedLanguage;

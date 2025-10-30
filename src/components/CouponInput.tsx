@@ -1,9 +1,9 @@
 import { Tag, X } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { toast } from "sonner";
 
 interface CouponInputProps {
   onApplyCoupon: (code: string, discount: number) => void;
@@ -43,7 +43,7 @@ export const CouponInput = ({ onApplyCoupon, currentCoupon, onRemoveCoupon }: Co
 
   if (currentCoupon) {
     return (
-      <div className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg">
+      <div className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg">
         <div className="flex items-center gap-2 text-sm">
           <Tag className="h-4 w-4 text-green-600" />
           <span className="font-medium text-green-600">Coupon: {currentCoupon}</span>

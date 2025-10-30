@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { type SupportedLanguage, languageNames } from "@/i18n";
+import { languageNames, type SupportedLanguage } from "@/i18n";
 
 export const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();

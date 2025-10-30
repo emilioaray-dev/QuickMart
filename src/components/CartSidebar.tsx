@@ -1,7 +1,7 @@
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
+import { CouponInput } from "@/components/CouponInput";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CouponInput } from "@/components/CouponInput";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/contexts/LanguageContext";

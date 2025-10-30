@@ -50,47 +50,7 @@ All colors MUST be HSL.
   --color-sidebar-ring: oklch(52% 0.18 145);
 }
 
-@media (prefers-color-scheme: dark) {
-  @theme {
-    /* Dark Mode - Still fresh but easier on the eyes */
-    --color-background: oklch(15% 0.02 140);
-    --color-foreground: oklch(95% 0.01 140);
 
-    --color-card: oklch(18% 0.02 140);
-    --color-card-foreground: oklch(95% 0.01 140);
-
-    --color-popover: oklch(18% 0.02 140);
-    --color-popover-foreground: oklch(95% 0.01 140);
-
-    --color-primary: oklch(58% 0.18 145);
-    --color-primary-foreground: oklch(100% 0 0);
-
-    --color-secondary: oklch(65% 0.15 50);
-    --color-secondary-foreground: oklch(15% 0.02 140);
-
-    --color-muted: oklch(22% 0.02 140);
-    --color-muted-foreground: oklch(70% 0.01 140);
-
-    --color-accent: oklch(25% 0.08 145);
-    --color-accent-foreground: oklch(85% 0.08 145);
-
-    --color-destructive: oklch(58% 0.20 25);
-    --color-destructive-foreground: oklch(100% 0 0);
-
-    --color-border: oklch(28% 0.02 140);
-    --color-input: oklch(22% 0.02 140);
-    --color-ring: oklch(58% 0.18 145);
-
-    --color-sidebar-background: oklch(16% 0.02 140);
-    --color-sidebar-foreground: oklch(95% 0.01 140);
-    --color-sidebar-primary: oklch(58% 0.18 145);
-    --color-sidebar-primary-foreground: oklch(100% 0 0);
-    --color-sidebar-accent: oklch(22% 0.02 140);
-    --color-sidebar-accent-foreground: oklch(95% 0.01 140);
-    --color-sidebar-border: oklch(28% 0.02 140);
-    --color-sidebar-ring: oklch(58% 0.18 145);
-  }
-}
 
 * {
   border-color: var(--color-border);
