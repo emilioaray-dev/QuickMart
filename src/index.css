@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@theme {
+  /* Modern Supermarket Theme - Bright & Welcoming */
+  --color-background: oklch(99% 0.005 140);
+  --color-foreground: oklch(18% 0.02 140);
+
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(18% 0.02 140);
+
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(18% 0.02 140);
+
+  /* Fresh Green - Primary color for supermarket */
+  --color-primary: oklch(52% 0.18 145);
+  --color-primary-foreground: oklch(100% 0 0);
+
+  /* Warm Orange - Secondary for promotions/highlights */
+  --color-secondary: oklch(60% 0.15 50);
+  --color-secondary-foreground: oklch(100% 0 0);
+
+  --color-muted: oklch(97% 0.005 140);
+  --color-muted-foreground: oklch(48% 0.02 140);
+
+  /* Light Green Accent */
+  --color-accent: oklch(96% 0.06 145);
+  --color-accent-foreground: oklch(26% 0.12 145);
+
+  /* Red for destructive actions */
+  --color-destructive: oklch(55% 0.20 25);
+  --color-destructive-foreground: oklch(100% 0 0);
+
+  --color-border: oklch(92% 0.005 140);
+  --color-input: oklch(99% 0.005 140);
+  --color-ring: oklch(52% 0.18 145);
+
+  --radius: 0.5rem;
+
+  --color-sidebar-background: oklch(99.5% 0.003 140);
+  --color-sidebar-foreground: oklch(18% 0.02 140);
+  --color-sidebar-primary: oklch(52% 0.18 145);
+  --color-sidebar-primary-foreground: oklch(100% 0 0);
+  --color-sidebar-accent: oklch(97% 0.005 140);
+  --color-sidebar-accent-foreground: oklch(18% 0.02 140);
+  --color-sidebar-border: oklch(94% 0.005 140);
+  --color-sidebar-ring: oklch(52% 0.18 145);
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    /* Dark Mode - Still fresh but easier on the eyes */
+    --color-background: oklch(15% 0.02 140);
+    --color-foreground: oklch(95% 0.01 140);
+
+    --color-card: oklch(18% 0.02 140);
+    --color-card-foreground: oklch(95% 0.01 140);
+
+    --color-popover: oklch(18% 0.02 140);
+    --color-popover-foreground: oklch(95% 0.01 140);
+
+    --color-primary: oklch(58% 0.18 145);
+    --color-primary-foreground: oklch(100% 0 0);
+
+    --color-secondary: oklch(65% 0.15 50);
+    --color-secondary-foreground: oklch(15% 0.02 140);
+
+    --color-muted: oklch(22% 0.02 140);
+    --color-muted-foreground: oklch(70% 0.01 140);
+
+    --color-accent: oklch(25% 0.08 145);
+    --color-accent-foreground: oklch(85% 0.08 145);
+
+    --color-destructive: oklch(58% 0.20 25);
+    --color-destructive-foreground: oklch(100% 0 0);
+
+    --color-border: oklch(28% 0.02 140);
+    --color-input: oklch(22% 0.02 140);
+    --color-ring: oklch(58% 0.18 145);
+
+    --color-sidebar-background: oklch(16% 0.02 140);
+    --color-sidebar-foreground: oklch(95% 0.01 140);
+    --color-sidebar-primary: oklch(58% 0.18 145);
+    --color-sidebar-primary-foreground: oklch(100% 0 0);
+    --color-sidebar-accent: oklch(22% 0.02 140);
+    --color-sidebar-accent-foreground: oklch(95% 0.01 140);
+    --color-sidebar-border: oklch(28% 0.02 140);
+    --color-sidebar-ring: oklch(58% 0.18 145);
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Force light theme background if needed */
+html {
+  color-scheme: light;
+}
+
+html.light,
+html[data-theme="light"] {
+  --color-background: oklch(99% 0.005 140);
+}
+
+/* Ensure root element has light background */
+#root {
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+/* Modern Supermarket Enhancements */
+.product-card-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.product-card-hover:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Fresh produce badge */
+.fresh-badge {
+  background: linear-gradient(135deg, oklch(52% 0.18 145) 0%, oklch(48% 0.16 155) 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Price tag styling */
+.price-tag {
+  font-weight: 700;
+  color: oklch(52% 0.18 145);
+}
+
+/* Category badges */
+.category-badge {
+  background: oklch(94% 0.08 145);
+  color: oklch(28% 0.12 145);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
