@@ -100,4 +100,54 @@ export interface Translation {
   snacks: string;
   frozenFoods: string;
   pantry: string;
+
+  // Barcode Scanner
+  barcodeScannerTitle: string;
+  barcodeScannerDescription: string;
+  scanProductButton: string;
+  scanningState: string;
+  cancel: string;
+  availableTestBarcodes: string;
+  noBarcodeFound: string;
+
+  // Coupon Input
+  couponLabel: string;
+  availableCoupons: string;
+
+  // Product Card
+  priceLabel: string;
+
+  // Product Search
+  categoryPlaceholder: string;
+
+  // Order History
+  orderHistoryTitle: string;
+  orderHistoryDescription: string;
+  noOrdersYet: string;
+  orderPrefix: string;
+  paymentMethodCard: string;
+  paymentMethodCash: string;
+  discountLabel: string;
+  printReceipt: string;
+
+  // Stats Dashboard
+  statsDashboardTitle: string;
+  statsDashboardDescription: string;
+  totalRevenue: string;
+  allTime: string;
+  totalOrders: string;
+  completed: string;
+  avgOrderValue: string;
+  perTransaction: string;
+  itemsSold: string;
+  totalUnits: string;
+  last7Days: string;
+  ordersLabel: string;
+  revenueLabel: string;
+  paymentMethods: string;
+  cardLabel: string;
+  cashLabel: string;
+  topProducts: string;
+  noSalesDataYet: string;
+  unitsSold: string;
 }

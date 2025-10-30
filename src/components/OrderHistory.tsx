@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { Order } from "@/types/order";
 
 interface OrderHistoryProps {
@@ -19,6 +20,7 @@ interface OrderHistoryProps {
 }
 
 export const OrderHistory = ({ isOpen, onClose, orders, onPrintReceipt }: OrderHistoryProps) => {
+  const { t } = useLanguage();
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("en-US", {
@@ -34,15 +36,15 @@ export const OrderHistory = ({ isOpen, onClose, orders, onPrintReceipt }: OrderH
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-2xl max-h-[80vh]">
         <DialogHeader>
-          <DialogTitle>Order History</DialogTitle>
-          <DialogDescription>View your past transactions and receipts</DialogDescription>
+          <DialogTitle>{t.orderHistoryTitle}</DialogTitle>
+          <DialogDescription>{t.orderHistoryDescription}</DialogDescription>
         </DialogHeader>
 
         <ScrollArea className="h-[500px] pr-4">
           {orders.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <Calendar className="h-16 w-16 text-muted-foreground mb-4" />
-              <p className="text-muted-foreground">No orders yet</p>
+              <p className="text-muted-foreground">{t.noOrdersYet}</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -53,7 +55,7 @@ export const OrderHistory = ({ isOpen, onClose, orders, onPrintReceipt }: OrderH
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div>
-                      <p className="font-semibold text-sm">Order #{order.id.slice(0, 8)}</p>
+                      <p className="font-semibold text-sm">{t.orderPrefix} {order.id.slice(0, 8)}</p>
                       <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
                         <Calendar className="h-3 w-3" />
                         {formatDate(order.date)}
@@ -65,12 +67,12 @@ export const OrderHistory = ({ isOpen, onClose, orders, onPrintReceipt }: OrderH
                         {order.paymentMethod === "card" ? (
                           <>
                             <CreditCard className="h-3 w-3" />
-                            Card
+                            {t.paymentMethodCard}
                           </>
                         ) : (
                           <>
                             <Wallet className="h-3 w-3" />
-                            Cash
+                            {t.paymentMethodCash}
                           </>
                         )}
                       </div>
@@ -94,7 +96,7 @@ export const OrderHistory = ({ isOpen, onClose, orders, onPrintReceipt }: OrderH
 
                   {order.discount && order.discount > 0 && (
                     <div className="text-sm text-green-600 mb-2">
-                      Discount ({order.couponCode}): -${order.discount.toFixed(2)}
+                      {t.discountLabel.replace('{couponCode}', order.couponCode || '').replace('{amount}', order.discount.toFixed(2))}
                     </div>
                   )}
 
@@ -105,7 +107,7 @@ export const OrderHistory = ({ isOpen, onClose, orders, onPrintReceipt }: OrderH
                     onClick={() => onPrintReceipt(order)}
                   >
                     <Download className="h-4 w-4 mr-2" />
-                    Print Receipt
+                    {t.printReceipt}
                   </Button>
                 </div>
               ))}

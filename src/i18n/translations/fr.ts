@@ -45,42 +45,7 @@ export const fr: Translation = {
   processing: "Traitement...",
   discountApplied: "Réduction Appliquée:",
 
-  // Barcode Scanner
-  barcodeScanner: "Scanner de Code-Barres",
-  barcodeScannerDescription: "Entrez ou scannez un code-barres pour l'ajouter à votre panier",
-  scanOrEnterBarcode: "Scanner ou entrer le code-barres...",
-  scanProduct: "Scanner le Produit",
-  scanning: "Scan en cours...",
-  cancel: "Annuler",
-  availableTestBarcodes: "Codes-Barres de Test Disponibles:",
-  noProductFoundWithBarcode: "Aucun produit trouvé avec le code-barres:",
 
-  // Order History
-  orderHistory: "Historique des Commandes",
-  noOrdersYet: "Aucune commande pour le moment",
-  order: "Commande",
-  printReceipt: "Imprimer le Reçu",
-  paymentMethod: "Mode de Paiement:",
-  card: "Carte",
-
-  // Stats Dashboard
-  salesAnalytics: "Analyse des Ventes",
-  overviewOfPerformance: "Aperçu des performances de votre magasin",
-  totalRevenue: "Revenu Total",
-  allTime: "Tout le temps",
-  totalOrders: "Commandes Totales",
-  completed: "Terminées",
-  avgOrderValue: "Valeur Moy. Commande",
-  perTransaction: "Par transaction",
-  itemsSold: "Articles Vendus",
-  totalUnits: "Unités totales",
-  last7Days: "7 Derniers Jours",
-  orders: "Commandes:",
-  revenue: "Revenu:",
-  paymentMethods: "Modes de Paiement",
-  topProducts: "Produits Populaires",
-  noSalesDataYet: "Pas encore de données de vente",
-  unitsSold: "unités vendues",
 
   // Toasts
   addedToCart: "ajouté au panier",
@@ -100,4 +65,54 @@ export const fr: Translation = {
   snacks: "Collations",
   frozenFoods: "Surgelés",
   pantry: "Garde-Manger",
+
+  // Barcode Scanner
+  barcodeScannerTitle: "Scanner de Code-Barres",
+  barcodeScannerDescription: "Entrez ou scannez un code-barres pour l'ajouter à votre panier",
+  scanProductButton: "Scanner le Produit",
+  scanningState: "Scan en cours...",
+  cancel: "Annuler",
+  availableTestBarcodes: "Codes-Barres de Test Disponibles:",
+  noBarcodeFound: "Aucun produit trouvé avec le code-barres:",
+
+  // Coupon Input
+  couponLabel: "Code promo:",
+  availableCoupons: "Essayez: SAVE10, SAVE20, FIRST5, WELCOME",
+
+  // Product Card
+  priceLabel: "Prix",
+
+  // Product Search
+  categoryPlaceholder: "Catégorie",
+
+  // Order History
+  orderHistoryTitle: "Historique des Commandes",
+  orderHistoryDescription: "Voir vos transactions passées et reçus",
+  noOrdersYet: "Aucune commande pour le moment",
+  orderPrefix: "Commande #",
+  paymentMethodCard: "Carte",
+  paymentMethodCash: "Espèces",
+  discountLabel: "Réduction ({couponCode}): -${amount}",
+  printReceipt: "Imprimer le Reçu",
+
+  // Stats Dashboard
+  statsDashboardTitle: "Analyse des Ventes",
+  statsDashboardDescription: "Aperçu des performances de votre magasin",
+  totalRevenue: "Revenu Total",
+  allTime: "Tout le temps",
+  totalOrders: "Commandes Totales",
+  completed: "Terminées",
+  avgOrderValue: "Valeur Moy. Commande",
+  perTransaction: "Par transaction",
+  itemsSold: "Articles Vendus",
+  totalUnits: "Unités totales",
+  last7Days: "7 Derniers Jours",
+  ordersLabel: "Commandes:",
+  revenueLabel: "Revenu:",
+  paymentMethods: "Modes de Paiement",
+  cardLabel: "Carte:",
+  cashLabel: "Espèces:",
+  topProducts: "Produits Populaires",
+  noSalesDataYet: "Pas encore de données de vente",
+  unitsSold: "unités vendues",
 };

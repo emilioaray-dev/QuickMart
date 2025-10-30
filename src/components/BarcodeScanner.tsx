@@ -9,6 +9,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { Product } from "@/types/product";
 
 interface BarcodeScannerProps {
@@ -66,16 +67,18 @@ export const BarcodeScanner = ({
     }
   };
 
+  const { t } = useLanguage();
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Scan className="h-5 w-5" />
-            Barcode Scanner
+            {t.barcodeScannerTitle}
           </DialogTitle>
           <DialogDescription>
-            Enter or scan a product barcode to add it to your cart
+            {t.barcodeScannerDescription}
           </DialogDescription>
         </DialogHeader>
 
@@ -84,7 +87,7 @@ export const BarcodeScanner = ({
             <Input
               ref={inputRef}
               type="text"
-              placeholder="Scan or enter barcode..."
+              placeholder={t.scanOrEnterBarcode}
               value={barcode}
               onChange={(e) => setBarcode(e.target.value)}
               onKeyPress={handleKeyPress}
@@ -103,15 +106,15 @@ export const BarcodeScanner = ({
 
           <div className="flex gap-2">
             <Button onClick={handleScan} disabled={!barcode.trim() || scanning} className="flex-1">
-              {scanning ? "Scanning..." : "Scan Product"}
+              {scanning ? t.scanningState : t.scanProductButton}
             </Button>
             <Button variant="outline" onClick={onClose}>
-              Cancel
+              {t.cancel}
             </Button>
           </div>
 
           <div className="bg-muted rounded-lg p-4 space-y-2">
-            <p className="text-sm font-semibold">Available Test Barcodes:</p>
+            <p className="text-sm font-semibold">{t.availableTestBarcodes}</p>
             <div className="grid grid-cols-2 gap-2 text-sm">
               {products.slice(0, 6).map((product) => (
                 <div key={product.id} className="flex justify-between">

@@ -45,42 +45,7 @@ export const en: Translation = {
   processing: "Processing...",
   discountApplied: "Discount Applied:",
 
-  // Barcode Scanner
-  barcodeScanner: "Barcode Scanner",
-  barcodeScannerDescription: "Enter or scan a product barcode to add it to your cart",
-  scanOrEnterBarcode: "Scan or enter barcode...",
-  scanProduct: "Scan Product",
-  scanning: "Scanning...",
-  cancel: "Cancel",
-  availableTestBarcodes: "Available Test Barcodes:",
-  noProductFoundWithBarcode: "No product found with barcode:",
 
-  // Order History
-  orderHistory: "Order History",
-  noOrdersYet: "No orders yet",
-  order: "Order",
-  printReceipt: "Print Receipt",
-  paymentMethod: "Payment Method:",
-  card: "Card",
-
-  // Stats Dashboard
-  salesAnalytics: "Sales Analytics",
-  overviewOfPerformance: "Overview of your store performance",
-  totalRevenue: "Total Revenue",
-  allTime: "All time",
-  totalOrders: "Total Orders",
-  completed: "Completed",
-  avgOrderValue: "Avg. Order Value",
-  perTransaction: "Per transaction",
-  itemsSold: "Items Sold",
-  totalUnits: "Total units",
-  last7Days: "Last 7 Days",
-  orders: "Orders:",
-  revenue: "Revenue:",
-  paymentMethods: "Payment Methods",
-  topProducts: "Top Products",
-  noSalesDataYet: "No sales data yet",
-  unitsSold: "units sold",
 
   // Toasts
   addedToCart: "added to cart",
@@ -100,4 +65,54 @@ export const en: Translation = {
   snacks: "Snacks",
   frozenFoods: "Frozen Foods",
   pantry: "Pantry",
+
+  // Barcode Scanner
+  barcodeScannerTitle: "Barcode Scanner",
+  barcodeScannerDescription: "Enter or scan a product barcode to add it to your cart",
+  scanProductButton: "Scan Product",
+  scanningState: "Scanning...",
+  cancel: "Cancel",
+  availableTestBarcodes: "Available Test Barcodes:",
+  noBarcodeFound: "No product found with barcode:",
+
+  // Coupon Input
+  couponLabel: "Coupon:",
+  availableCoupons: "Try: SAVE10, SAVE20, FIRST5, WELCOME",
+
+  // Product Card
+  priceLabel: "Price",
+
+  // Product Search
+  categoryPlaceholder: "Category",
+
+  // Order History
+  orderHistoryTitle: "Order History",
+  orderHistoryDescription: "View your past transactions and receipts",
+  noOrdersYet: "No orders yet",
+  orderPrefix: "Order #",
+  paymentMethodCard: "Card",
+  paymentMethodCash: "Cash",
+  discountLabel: "Discount ({couponCode}): -${amount}",
+  printReceipt: "Print Receipt",
+
+  // Stats Dashboard
+  statsDashboardTitle: "Sales Analytics",
+  statsDashboardDescription: "Overview of your store performance",
+  totalRevenue: "Total Revenue",
+  allTime: "All time",
+  totalOrders: "Total Orders",
+  completed: "Completed",
+  avgOrderValue: "Avg. Order Value",
+  perTransaction: "Per transaction",
+  itemsSold: "Items Sold",
+  totalUnits: "Total units",
+  last7Days: "Last 7 Days",
+  ordersLabel: "Orders:",
+  revenueLabel: "Revenue:",
+  paymentMethods: "Payment Methods",
+  cardLabel: "Card:",
+  cashLabel: "Cash:",
+  topProducts: "Top Products",
+  noSalesDataYet: "No sales data yet",
+  unitsSold: "units sold",
 };

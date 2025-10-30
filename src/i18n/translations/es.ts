@@ -45,42 +45,7 @@ export const es: Translation = {
   processing: "Procesando...",
   discountApplied: "Descuento Aplicado:",
 
-  // Barcode Scanner
-  barcodeScanner: "Escáner de Código de Barras",
-  barcodeScannerDescription: "Ingresa o escanea un código de barras para agregarlo a tu carrito",
-  scanOrEnterBarcode: "Escanear o ingresar código de barras...",
-  scanProduct: "Escanear Producto",
-  scanning: "Escaneando...",
-  cancel: "Cancelar",
-  availableTestBarcodes: "Códigos de Barras de Prueba Disponibles:",
-  noProductFoundWithBarcode: "No se encontró producto con código de barras:",
 
-  // Order History
-  orderHistory: "Historial de Pedidos",
-  noOrdersYet: "Aún no hay pedidos",
-  order: "Pedido",
-  printReceipt: "Imprimir Recibo",
-  paymentMethod: "Método de Pago:",
-  card: "Tarjeta",
-
-  // Stats Dashboard
-  salesAnalytics: "Análisis de Ventas",
-  overviewOfPerformance: "Resumen del rendimiento de tu tienda",
-  totalRevenue: "Ingresos Totales",
-  allTime: "Todo el tiempo",
-  totalOrders: "Pedidos Totales",
-  completed: "Completados",
-  avgOrderValue: "Valor Prom. de Pedido",
-  perTransaction: "Por transacción",
-  itemsSold: "Artículos Vendidos",
-  totalUnits: "Unidades totales",
-  last7Days: "Últimos 7 Días",
-  orders: "Pedidos:",
-  revenue: "Ingresos:",
-  paymentMethods: "Métodos de Pago",
-  topProducts: "Productos Principales",
-  noSalesDataYet: "Aún no hay datos de ventas",
-  unitsSold: "unidades vendidas",
 
   // Toasts
   addedToCart: "agregado al carrito",
@@ -100,4 +65,54 @@ export const es: Translation = {
   snacks: "Snacks",
   frozenFoods: "Congelados",
   pantry: "Despensa",
+
+  // Barcode Scanner
+  barcodeScannerTitle: "Escáner de Código de Barras",
+  barcodeScannerDescription: "Ingresa o escanea un código de barras para agregarlo a tu carrito",
+  scanProductButton: "Escanear Producto",
+  scanningState: "Escaneando...",
+  cancel: "Cancelar",
+  availableTestBarcodes: "Códigos de Barras de Prueba Disponibles:",
+  noBarcodeFound: "No se encontró producto con código de barras:",
+
+  // Coupon Input
+  couponLabel: "Cupón:",
+  availableCoupons: "Prueba: SAVE10, SAVE20, FIRST5, WELCOME",
+
+  // Product Card
+  priceLabel: "Precio",
+
+  // Product Search
+  categoryPlaceholder: "Categoría",
+
+  // Order History
+  orderHistoryTitle: "Historial de Pedidos",
+  orderHistoryDescription: "Ver tus transacciones anteriores y recibos",
+  noOrdersYet: "Aún no hay pedidos",
+  orderPrefix: "Pedido #",
+  paymentMethodCard: "Tarjeta",
+  paymentMethodCash: "Efectivo",
+  discountLabel: "Descuento ({couponCode}): -${amount}",
+  printReceipt: "Imprimir Recibo",
+
+  // Stats Dashboard
+  statsDashboardTitle: "Análisis de Ventas",
+  statsDashboardDescription: "Resumen del rendimiento de tu tienda",
+  totalRevenue: "Ingresos Totales",
+  allTime: "Todo el tiempo",
+  totalOrders: "Pedidos Totales",
+  completed: "Completados",
+  avgOrderValue: "Valor Prom. de Pedido",
+  perTransaction: "Por transacción",
+  itemsSold: "Artículos Vendidos",
+  totalUnits: "Unidades totales",
+  last7Days: "Últimos 7 Días",
+  ordersLabel: "Pedidos:",
+  revenueLabel: "Ingresos:",
+  paymentMethods: "Métodos de Pago",
+  cardLabel: "Tarjeta:",
+  cashLabel: "Efectivo:",
+  topProducts: "Productos Principales",
+  noSalesDataYet: "Aún no hay datos de ventas",
+  unitsSold: "unidades vendidas",
 };

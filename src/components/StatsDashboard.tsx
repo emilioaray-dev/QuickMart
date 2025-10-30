@@ -7,6 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { Order } from "@/types/order";
 
 interface StatsDashboardProps {
@@ -16,6 +17,7 @@ interface StatsDashboardProps {
 }
 
 export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps) => {
+  const { t } = useLanguage();
   const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
   const totalOrders = orders.length;
   const totalItems = orders.reduce(
@@ -65,53 +67,53 @@ export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps)
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-4xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Sales Analytics</DialogTitle>
-          <DialogDescription>Overview of your store performance</DialogDescription>
+          <DialogTitle>{t.statsDashboardTitle}</DialogTitle>
+          <DialogDescription>{t.statsDashboardDescription}</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6 py-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+                <CardTitle className="text-sm font-medium">{t.totalRevenue}</CardTitle>
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">${totalRevenue.toFixed(2)}</div>
-                <p className="text-xs text-muted-foreground">All time</p>
+                <p className="text-xs text-muted-foreground">{t.allTime}</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
+                <CardTitle className="text-sm font-medium">{t.totalOrders}</CardTitle>
                 <History className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{totalOrders}</div>
-                <p className="text-xs text-muted-foreground">Completed</p>
+                <p className="text-xs text-muted-foreground">{t.completed}</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Avg. Order Value</CardTitle>
+                <CardTitle className="text-sm font-medium">{t.avgOrderValue}</CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">${averageOrder.toFixed(2)}</div>
-                <p className="text-xs text-muted-foreground">Per transaction</p>
+                <p className="text-xs text-muted-foreground">{t.perTransaction}</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Items Sold</CardTitle>
+                <CardTitle className="text-sm font-medium">{t.itemsSold}</CardTitle>
                 <Package className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{totalItems}</div>
-                <p className="text-xs text-muted-foreground">Total units</p>
+                <p className="text-xs text-muted-foreground">{t.totalUnits}</p>
               </CardContent>
             </Card>
           </div>
@@ -119,15 +121,15 @@ export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps)
           <div className="grid md:grid-cols-2 gap-4">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Last 7 Days</CardTitle>
+                <CardTitle className="text-base">{t.last7Days}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Orders:</span>
+                  <span className="text-sm text-muted-foreground">{t.ordersLabel}</span>
                   <span className="font-medium">{last7Days.length}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Revenue:</span>
+                  <span className="text-sm text-muted-foreground">{t.revenueLabel}</span>
                   <span className="font-medium">${revenue7Days.toFixed(2)}</span>
                 </div>
               </CardContent>
@@ -135,11 +137,11 @@ export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps)
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Payment Methods</CardTitle>
+                <CardTitle className="text-base">{t.paymentMethods}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Card:</span>
+                  <span className="text-sm text-muted-foreground">{t.cardLabel}</span>
                   <span className="font-medium">
                     {paymentMethodStats.card} (
                     {totalOrders > 0
@@ -149,7 +151,7 @@ export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps)
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Cash:</span>
+                  <span className="text-sm text-muted-foreground">{t.cashLabel}</span>
                   <span className="font-medium">
                     {paymentMethodStats.cash} (
                     {totalOrders > 0
@@ -164,11 +166,11 @@ export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps)
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Top Products</CardTitle>
+              <CardTitle className="text-base">{t.topProducts}</CardTitle>
             </CardHeader>
             <CardContent>
               {topProducts.length === 0 ? (
-                <p className="text-sm text-muted-foreground">No sales data yet</p>
+                <p className="text-sm text-muted-foreground">{t.noSalesDataYet}</p>
               ) : (
                 <div className="space-y-3">
                   {topProducts.map((product, index) => (
@@ -180,7 +182,7 @@ export const StatsDashboard = ({ isOpen, onClose, orders }: StatsDashboardProps)
                         <div>
                           <p className="text-sm font-medium">{product.name}</p>
                           <p className="text-xs text-muted-foreground">
-                            {product.quantity} units sold
+                            {product.quantity} {t.unitsSold}
                           </p>
                         </div>
                       </div>
