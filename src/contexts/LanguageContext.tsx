@@ -12,7 +12,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useLocalStorage<SupportedLanguage>("language", "en");
+  const [language, setLanguage] = useLocalStorage<SupportedLanguage>("language", "es");
 
   const t = useMemo(() => translations[language], [language]);
 

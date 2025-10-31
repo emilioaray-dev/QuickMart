@@ -20,7 +20,7 @@ function createWindow() {
     minHeight: 600,
     backgroundColor: "#ffffff",
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "preload.mjs"),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
@@ -97,32 +97,65 @@ ipcMain.handle("get-platform", () => {
 });
 
 // Allow printing in Electron - handle receipt printing
-ipcMain.handle("print-receipt", async (event, receiptHTML: string) => {
-  const win = new BrowserWindow({
-    width: 400,
-    height: 600,
-    show: false, // Don't show the window
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-    }
-  });
+ipcMain.handle("print-receipt", (event, receiptHTML: string) => {
+  return new Promise<boolean>((resolve, reject) => {
+    const win = new BrowserWindow({
+      width: 400,
+      height: 600,
+      show: false, // Don't show the window initially
+      webPreferences: {
+        nodeIntegration: false,
+        contextIsolation: true,
+      },
+      // On macOS, sometimes we need to ensure proper focus handling
+      parent: BrowserWindow.getFocusedWindow() || null, // Associate with main window if available
+      modal: false, // Don't make it modal to avoid blocking main window
+    });
 
-  // Load the receipt HTML
-  await win.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(receiptHTML)}`);
-  
-  // Wait for the content to be loaded
-  await new Promise(resolve => {
-    win.webContents.once('did-finish-load', resolve);
+    win.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(receiptHTML)}`);
+    
+    win.webContents.once('did-finish-load', async () => {
+      // On macOS, sometimes we need to activate the window to ensure print dialog appears
+      if (process.platform === 'darwin') {
+        win.showInactive(); // Show without taking focus
+      }
+      
+      // Check if there are any printers available before attempting to print
+      const printers = await win.webContents.getPrintersAsync();
+      if (!printers || printers.length === 0) {
+        console.warn('No printers available');
+        win.close();
+        reject(new Error('No printers available on the network'));
+        return;
+      }
+      
+      // Show print dialog and print with callback to handle success/failure
+      win.webContents.print({ 
+        silent: false, 
+        printBackground: true 
+      }, (success, failureReason) => {
+        // Close the window after printing attempt
+        win.close();
+        
+        if (success) {
+          resolve(true);
+        } else {
+          console.error('Printing failed:', failureReason);
+          reject(new Error(failureReason || 'Printing failed'));
+        }
+      });
+    });
+    
+    // Handle load failures for the temporary print window
+    win.webContents.once('did-fail-load', (_event, errorCode, errorDescription) => {
+      win.close();
+      reject(new Error(errorDescription || `Load failed with code ${errorCode}`));
+    });
+    
+    // Handle window errors
+    win.on('error', (error) => {
+      win.close();
+      reject(error);
+    });
   });
-  
-  // Show print dialog and print
-  // The print method returns Promise<boolean> indicating success/failure
-  const result = await win.webContents.print({ silent: false, printBackground: true });
-  
-  // Close the window after printing
-  win.close();
-  
-  // The print method returns void, but we'll return success indicator
-  return true; // Consider it successful if no error was thrown
 });

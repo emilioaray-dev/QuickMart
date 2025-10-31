@@ -111,7 +111,8 @@
   },
   "build": {
     "appId": "com.quickmart.checkout",
-    "productName": "QuickMart Checkout",
+    "productName": "QuickMart",
+    "icon": "public/appLogo.icns",
     "directories": {
       "output": "release/${version}"
     },
@@ -125,7 +126,8 @@
         "zip"
       ],
       "category": "public.app-category.business",
-      "artifactName": "${productName}-${version}-mac-${arch}.${ext}"
+      "artifactName": "${productName}-${version}-mac-${arch}.${ext}",
+      "icon": "public/appLogo.icns"
     },
     "win": {
       "target": [
@@ -136,7 +138,8 @@
           ]
         }
       ],
-      "artifactName": "${productName}-${version}-win-${arch}.${ext}"
+      "artifactName": "${productName}-${version}-win-${arch}.${ext}",
+      "icon": "public/appLogo.ico"
     },
     "linux": {
       "target": [
@@ -144,7 +147,8 @@
         "deb"
       ],
       "category": "Office",
-      "artifactName": "${productName}-${version}-linux-${arch}.${ext}"
+      "artifactName": "${productName}-${version}-linux-${arch}.${ext}",
+      "icon": "public/appLogo.png"
     },
     "nsis": {
       "oneClick": false,

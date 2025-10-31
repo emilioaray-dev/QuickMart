@@ -135,13 +135,32 @@ export const printReceipt = (order: Order) => {
   // Check if we're in Electron environment
   if (window.electronAPI) {
     // Use Electron's print API
-    window.electronAPI.printReceipt(receiptHTML).catch(err => {
+    window.electronAPI.printReceipt(receiptHTML).then(success => {
+      if (!success) {
+        console.warn('Printing was cancelled or failed');
+      }
+    }).catch(err => {
       console.error('Error printing receipt:', err);
+      
+      // Check if the error is related to no printers available
+      if (err.message.includes('No printers available')) {
+        // Show a user-friendly message
+        alert('No printers available. The receipt will be displayed in a new window for manual printing.');
+      }
+      
       // Fallback to browser printing if Electron printing fails
       const printWindow = window.open("", "_blank", "width=400,height=600");
       if (printWindow) {
         printWindow.document.write(receiptHTML);
         printWindow.document.close();
+        
+        // Wait for content to load and then print
+        printWindow.onload = () => {
+          printWindow.focus();
+          printWindow.print();
+          // Don't close the window automatically in case of printer issues
+          // so users can manually print from the browser
+        };
       }
     });
   } else {
