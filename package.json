@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "main": "dist-electron/main.js",
-  "author": "QuickMart",
+  "author": {
+    "name": "Celsius Emilio Aray",
+    "email": "emilioaray@gmail.com"
+  },
   "description": "Modern supermarket self-checkout system",
   "scripts": {
     "dev": "vite",
