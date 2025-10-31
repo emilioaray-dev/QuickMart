@@ -69,7 +69,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 3.79,
     category: "Fruits",
-    image: "https://images.unsplash.com/photo-1599819177272-219c96828c34?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1541746483522-27a1b8d79c2a?w=400&h=400&fit=crop",
     barcode: "1030303030303",
   },
   {
@@ -83,7 +83,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 6.99,
     category: "Fruits",
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784720?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1619961668341-918f23d0f34e?w=400&h=400&fit=crop",
     barcode: "1040404040404",
   },
   {
@@ -169,7 +169,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 3.99,
     category: "Dairy",
-    image: "https://images.unsplash.com/photo-1571212515416-fca589875e1e?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1566232208377-8c0e4f4e9e5a?w=400&h=400&fit=crop",
     barcode: "2020202020202",
   },
   {
@@ -255,7 +255,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 3.49,
     category: "Bakery",
-    image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1590490360182-cfd3f3a3d1d3?w=400&h=400&fit=crop",
     barcode: "3020202020202",
   },
   {
@@ -383,7 +383,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 5.49,
     category: "Beverages",
-    image: "https://images.unsplash.com/photo-1622484211850-cc1f8c6d3075?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1591353161384-58b6b67a22f3?w=400&h=400&fit=crop",
     barcode: "4050505050505",
   },
   {
@@ -397,7 +397,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 7.99,
     category: "Beverages",
-    image: "https://images.unsplash.com/photo-1622543925917-763c34f1f63e?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1601009731174-34d86b0e61b0?w=400&h=400&fit=crop",
     barcode: "4060606060606",
   },
 
@@ -669,7 +669,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 3.49,
     category: "Snacks",
-    image: "https://images.unsplash.com/photo-1591540286906-1684e1a8d3c6?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1565299560690-89b6b1d0a8e1?w=400&h=400&fit=crop",
     barcode: "7060606060606",
   },
   {
@@ -827,7 +827,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 4.99,
     category: "Pantry",
-    image: "https://images.unsplash.com/photo-1603029524146-6e44d5847749?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1566232208304-7e3a318d4c2d?w=400&h=400&fit=crop",
     barcode: "9050505050505",
   },
   {
@@ -841,7 +841,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 4.49,
     category: "Pantry",
-    image: "https://images.unsplash.com/photo-1517686748071-f0c1eb6fb09c?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1590658262251-0e12d5f73d0a?w=400&h=400&fit=crop",
     barcode: "9060606060606",
   },
   {
@@ -869,7 +869,7 @@ export const comprehensiveProducts: Product[] = [
     },
     price: 6.99,
     category: "Pantry",
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784720?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1566232208377-8c0e4f4e9e5a?w=400&h=400&fit=crop",
     barcode: "9080808080808",
   },
 ];

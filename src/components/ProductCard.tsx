@@ -26,6 +26,10 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
             src={product.image}
             alt={getProductName(product, language)}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://placehold.co/400x400/e2e8f0/64748b?text=' + encodeURIComponent(product.name.substring(0, 2).toUpperCase());
+            }}
           />
           <div className="absolute top-2 right-2">
             <span className="category-badge shadow-sm">
