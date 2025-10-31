@@ -1,73 +1,152 @@
-# Welcome to your Lovable project
+# QuickMart Checkout
 
-## Project info
+## Descripción
 
-**URL**: https://lovable.dev/projects/2e0b8c85-2bef-40f7-84ed-c9b558d9d26e
+QuickMart Checkout es una moderna aplicación de punto de venta (POS) desarrollada con Electron, diseñada para sistemas de autoservicio en supermercados y tiendas minoristas. La aplicación proporciona una interfaz intuitiva para la gestión de productos, creación de órdenes, procesamiento de pagos y emisión de recibos.
 
-## How can I edit this code?
+## Características Principales
 
-There are several ways of editing your application.
+- **Interfaz multilingüe**: Soporte para inglés, español, francés y alemán
+- **Gestión de productos**: Catálogo categorizado con imágenes, precios y códigos de barra
+- **Sistema de carrito**: Agregar, eliminar y modificar cantidades de productos
+- **Búsqueda de productos**: Filtro rápido por nombre o categoría
+- **Historial de órdenes**: Seguimiento de todas las transacciones realizadas
+- **Estadísticas**: Dashboard con productos más vendidos y análisis de ventas
+- **Impresión de recibos**: Generación de recibos con formato profesional
+- **Códigos de descuento**: Soporte para cupones y descuentos promocionales
+- **Escáner de código de barras**: Integración para procesamiento rápido de productos
+- **Diseño responsivo**: Adecuado para diferentes tamaños de pantalla y dispositivos
 
-**Use Lovable**
+## Tecnologías Utilizadas
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2e0b8c85-2bef-40f7-84ed-c9b558d9d26e) and start prompting.
+- **Electron**: Desarrollo de aplicaciones de escritorio multiplataforma
+- **React 19**: Framework para interfaces de usuario
+- **TypeScript**: Tipado estático para mejor mantenimiento del código
+- **Vite**: Herramienta de build rápida
+- **Tailwind CSS**: Estilado con utilidades de bajo nivel
+- **shadcn/ui**: Componentes de interfaz reutilizables
+- **Lucide React**: Iconos de código abierto
+- **Sonner**: Sistema de notificaciones
+- **electron-builder**: Empaquetado y distribución multiplataforma
 
-Changes made via Lovable will be committed automatically to this repo.
+## Instalación
 
-**Use your preferred IDE**
+### Requisitos previos
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (versión 18 o superior)
+- Bun (para scripts de desarrollo)
+- npm o yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Configuración del entorno
 
-Follow these steps:
+```bash
+# Clonar el repositorio
+git clone https://github.com/emilioaray-dev/QuickMart.git
+cd QuickMart
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Instalar dependencias
+bun install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Iniciar el modo desarrollo
+bun run dev
 ```
 
-**Edit a file directly in GitHub**
+### Desarrollo con Electron
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Iniciar en modo desarrollo con Electron
+bun run dev:electron
+```
 
-**Use GitHub Codespaces**
+## Compilación
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Para desarrollo
 
-## What technologies are used for this project?
+```bash
+# Build de desarrollo
+bun run build:dev
+```
 
-This project is built with:
+### Para producción (todos los sistemas)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Build para Mac (universal - Intel + Apple Silicon)
+bun run build:mac:universal
 
-## How can I deploy this project?
+# Build para Windows
+bun run build:win
 
-Simply open [Lovable](https://lovable.dev/projects/2e0b8c85-2bef-40f7-84ed-c9b558d9d26e) and click on Share -> Publish.
+# Build para Linux
+bun run build:linux
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Scripts de compilación multiplataforma
 
-Yes, you can!
+El proyecto incluye scripts automatizados para construir la aplicación en múltiples plataformas:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+# En sistemas Unix (macOS/Linux)
+./build-all-platforms.sh [opción]
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# En Windows
+build-all-platforms.bat [opción]
+```
+
+Opciones disponibles:
+- `all`: Construye para todas las plataformas (por defecto)
+- `mac`: Construye para macOS universal (Intel + Apple Silicon)
+- `mac:universal`: Igual que 'mac'
+- `mac:intel`: Construye solo para macOS Intel (x64)
+- `mac:arm`: Construye solo para macOS Apple Silicon (arm64)
+- `win`: Construye solo para Windows
+- `linux`: Construye solo para Linux
+- `help`: Muestra mensaje de ayuda
+
+## Página de Demostración
+
+Puedes ver una demostración funcional de la aplicación y descargar las versiones compiladas en: [https://quick-mart-demo-page.vercel.app/](https://quick-mart-demo-page.vercel.app/)
+
+La página incluye capturas de pantalla, descripción detallada y archivos de instalación para Windows, macOS y Linux.
+
+## Estructura del Proyecto
+
+```
+QuickMart/
+├── electron/                 # Código del proceso principal de Electron
+│   ├── main.ts              # Proceso principal de Electron
+│   └── preload.ts           # Script preload para seguridad
+├── src/                     # Código fuente de la aplicación
+│   ├── components/          # Componentes de React
+│   ├── contexts/            # Contextos de React
+│   ├── data/                # Datos de productos
+│   ├── i18n/                # Internacionalización
+│   ├── pages/               # Páginas principales
+│   ├── types/               # Tipos TypeScript
+│   └── utils/               # Utilidades
+├── public/                  # Recursos estáticos
+└── ...
+```
+
+## Características Técnicas
+
+- **Seguridad**: Aislamiento de contexto de Electron con preload scripts seguros
+- **Internacionalización**: Sistema completo de traducción con 4 idiomas
+- **Persistencia**: Almacenamiento local con hooks personalizados
+- **Accesibilidad**: Componentes accesibles siguiendo estándares WCAG
+- **Empaquetado**: Configuración para distribución multiplataforma
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request en el repositorio para discutir cambios o mejoras.
+
+## Licencia
+
+Este proyecto está licenciado bajo los términos especificados en el archivo LICENSE (si existe) o bajo términos estándar si no se especifica ninguna licencia.
+
+## Autor
+
+Desarrollado por Celsius Emilio Aray - [emilioaray@gmail.com](mailto:emilioaray@gmail.com)
+
+## Demostración Profesional
+
+Este proyecto fue creado para demostrar capacidades en desarrollo multiplataforma con Electron, empaquetado y distribución para diferentes sistemas operativos. La implementación incluye seguridad avanzada, internacionalización, y patrones de diseño modernos para aplicaciones de escritorio.
