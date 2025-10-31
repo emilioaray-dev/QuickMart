@@ -5,12 +5,14 @@ import { contextBridge, ipcRenderer } from "electron";
 contextBridge.exposeInMainWorld("electronAPI", {
   getAppVersion: () => ipcRenderer.invoke("get-app-version"),
   getPlatform: () => ipcRenderer.invoke("get-platform"),
+  printReceipt: (receiptHTML: string) => ipcRenderer.invoke("print-receipt", receiptHTML),
 });
 
 // Type definitions for the exposed API
 export interface ElectronAPI {
   getAppVersion: () => Promise<string>;
   getPlatform: () => Promise<string>;
+  printReceipt: (receiptHTML: string) => Promise<void>;
 }
 
 declare global {

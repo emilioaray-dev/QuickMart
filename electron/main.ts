@@ -95,3 +95,34 @@ ipcMain.handle("get-app-version", () => {
 ipcMain.handle("get-platform", () => {
   return process.platform;
 });
+
+// Allow printing in Electron - handle receipt printing
+ipcMain.handle("print-receipt", async (event, receiptHTML: string) => {
+  const win = new BrowserWindow({
+    width: 400,
+    height: 600,
+    show: false, // Don't show the window
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+    }
+  });
+
+  // Load the receipt HTML
+  await win.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(receiptHTML)}`);
+  
+  // Wait for the content to be loaded
+  await new Promise(resolve => {
+    win.webContents.once('did-finish-load', resolve);
+  });
+  
+  // Show print dialog and print
+  // The print method returns Promise<boolean> indicating success/failure
+  const result = await win.webContents.print({ silent: false, printBackground: true });
+  
+  // Close the window after printing
+  win.close();
+  
+  // The print method returns void, but we'll return success indicator
+  return true; // Consider it successful if no error was thrown
+});

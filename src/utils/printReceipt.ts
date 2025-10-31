@@ -128,20 +128,35 @@ export const printReceipt = (order: Order) => {
           <p>Visit us again soon!</p>
           <p>QuickMart - Your Friendly Neighborhood Store</p>
         </div>
-
-        <script>
-          window.onload = () => {
-            window.print();
-            setTimeout(() => window.close(), 500);
-          };
-        </script>
       </body>
     </html>
   `;
 
-  const printWindow = window.open("", "_blank", "width=400,height=600");
-  if (printWindow) {
-    printWindow.document.write(receiptHTML);
-    printWindow.document.close();
+  // Check if we're in Electron environment
+  if (window.electronAPI) {
+    // Use Electron's print API
+    window.electronAPI.printReceipt(receiptHTML).catch(err => {
+      console.error('Error printing receipt:', err);
+      // Fallback to browser printing if Electron printing fails
+      const printWindow = window.open("", "_blank", "width=400,height=600");
+      if (printWindow) {
+        printWindow.document.write(receiptHTML);
+        printWindow.document.close();
+      }
+    });
+  } else {
+    // For browser environment, use window.open approach
+    const printWindow = window.open("", "_blank", "width=400,height=600");
+    if (printWindow) {
+      printWindow.document.write(receiptHTML);
+      printWindow.document.close();
+      
+      // Wait for content to load and then print
+      printWindow.onload = () => {
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
+      };
+    }
   }
 };
